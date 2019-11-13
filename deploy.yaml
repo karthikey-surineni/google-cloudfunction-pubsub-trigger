@@ -6,7 +6,7 @@ steps:
   - |
     gcloud projects add-iam-policy-binding $$PROJECT_ID \
     --member=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com \
-    --role=roles/iam.serviceAccountUser; \
+    --role=roles/iam.serviceAccountUser;
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
