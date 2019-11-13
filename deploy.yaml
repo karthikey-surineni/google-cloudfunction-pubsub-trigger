@@ -10,6 +10,7 @@ steps:
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
+    --source=./pubsub_trigger.py \
     --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
   env:
   - 'PROJECT=$PROJECT_ID'
