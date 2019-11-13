@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args:
+  args: 
   - '-c'
   - |
   gcloud functions deploy $FUNCTION_NAME \
