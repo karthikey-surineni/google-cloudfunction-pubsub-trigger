@@ -4,13 +4,14 @@ steps:
   args:
   - '-c'
   - |
-  - gcloud functions deploy $FUNCTION_NAME \
+  gcloud functions deploy $FUNCTION_NAME \
   --region=australia-southeast1 \
   --trigger-topic=pubsub-test-topic \
   --entry-point=cf_pubsub_trigger \
   --retry \
   --runtime=python37 \
   --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
-
   env:
-  - 'FUNCTION_NAME=cf-pubsub-trigger'
+  - 'FUNCTION_NAME=${_FUNCTION_NAME}'
+substitutions:
+  _FUNCTION_NAME:
