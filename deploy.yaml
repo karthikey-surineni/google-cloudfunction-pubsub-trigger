@@ -6,7 +6,7 @@ steps:
   - |
   gcloud functions deploy $FUNCTION_NAME \
   --region=australia-southeast1 \
-  --trigger-topic=pubsub-test-topic
+  --trigger-topic=pubsub-test-topic \
   --entry-point=cf_pubsub_trigger \
   --retry \
   --runtime=python37 \
