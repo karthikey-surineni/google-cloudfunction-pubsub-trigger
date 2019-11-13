@@ -14,5 +14,3 @@ steps:
 
   env:
   - 'FUNCTION_NAME=cf-pubsub-trigger'
-
-
