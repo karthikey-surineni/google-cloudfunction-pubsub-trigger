@@ -2,16 +2,16 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args:
-  - '-c'
-  - |
+    - '-c'
+    - |
     gcloud functions deploy $FUNCTION_NAME \
-  --region=asia-northeast1 \
-  --trigger-topic=pubsub-test-topic \
-  --entry-point=cf_pubsub_trigger \
-  --retry \
-  --runtime=python37 \
-  --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
+    --region=asia-northeast1 \
+    --trigger-topic=pubsub-test-topic \
+    --entry-point=cf_pubsub_trigger \
+    --retry \
+    --runtime=python37 \
+    --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
   env:
-  - 'FUNCTION_NAME=${_FUNCTION_NAME}'
+    - 'FUNCTION_NAME=${_FUNCTION_NAME}'
 substitutions:
   _FUNCTION_NAME:
