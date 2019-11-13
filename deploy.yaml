@@ -10,7 +10,7 @@ steps:
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
-    --service-account=karthikey.surineni@gmail.com
+    --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
   env:
   - 'FUNCTION_NAME=${_FUNCTION_NAME}'
 substitutions:
