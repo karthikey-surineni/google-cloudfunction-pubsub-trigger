@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: 
+  args:
   - '-c'
   - |
-  gcloud functions deploy $FUNCTION_NAME \
+    gcloud functions deploy $FUNCTION_NAME \
   --region=asia-northeast1 \
   --trigger-topic=pubsub-test-topic \
   --entry-point=cf_pubsub_trigger \
