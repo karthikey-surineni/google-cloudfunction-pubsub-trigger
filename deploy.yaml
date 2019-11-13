@@ -4,8 +4,8 @@ steps:
   args:
   - '-c'
   - |
-  gcloud functions deploy $FUNCTION_NAME \
---region=australia-southeast1 \
+gcloud functions deploy $FUNCTION_NAME \
+--region=asia-northeast1 \
 --trigger-topic=pubsub-test-topic \
 --entry-point=cf_pubsub_trigger \
 --retry \
