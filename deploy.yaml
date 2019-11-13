@@ -4,7 +4,7 @@ steps:
   args:
   - '-c'
   - |
-    gcloud projects add-iam-policy-binding $$PROJECT_ID \
+    gcloud projects add-iam-policy-binding ${PROJECT} \
     --member=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com \
     --role=roles/iam.serviceAccountUser;
     gcloud functions deploy ${_FUNCTION_NAME} \
@@ -14,5 +14,7 @@ steps:
     --retry \
     --runtime=python37 \
     --service-account=cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com
+  env:
+  - 'PROJECT=$PROJECT_ID'
 substitutions:
   _FUNCTION_NAME:
