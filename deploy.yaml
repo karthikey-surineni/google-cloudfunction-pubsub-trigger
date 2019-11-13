@@ -4,9 +4,6 @@ steps:
   args:
   - '-c'
   - |
-    gcloud projects add-iam-policy-binding cb-dataflow-python \
-    --member serviceAccount:cb-dataflow-service-account@cb-dataflow-python.iam.gserviceaccount.com \
-    --role roles/iam.serviceAccountUser;
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
