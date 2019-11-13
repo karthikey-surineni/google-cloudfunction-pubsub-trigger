@@ -39,7 +39,6 @@ def hello_error_1(request):
 
     # [END functions_helloworld_error]
 
-
 def hello_error_2(request):
     # [START functions_helloworld_error]
     # WILL NOT be reported to Stackdriver Error Reporting, but will show up
