@@ -1,5 +1,5 @@
 
-def hello_pubsub(event, context):
+def cf_pubsub_trigger(event, context):
     """Background Cloud Function to be triggered by Pub/Sub.
     Args:
          event (dict):  The dictionary with data specific to this type of
