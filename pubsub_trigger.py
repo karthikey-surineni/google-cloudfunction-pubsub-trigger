@@ -49,7 +49,6 @@ def hello_error_2(request):
     logging.warn(RuntimeError('I failed you (logging.warn)'))
     logging.error(RuntimeError('I failed you (logging.error)'))
     sys.stderr.write('I failed you (sys.stderr.write)\n')
-
     # This WILL be reported to Stackdriver Error Reporting
     from flask import abort
     return abort(500)
