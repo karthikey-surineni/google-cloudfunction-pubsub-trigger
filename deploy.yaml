@@ -15,4 +15,3 @@ steps:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
   _FUNCTION_NAME:
-
