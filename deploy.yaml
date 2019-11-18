@@ -18,14 +18,14 @@ steps:
   args:
   - '-c'
   - |
-    echo ${cat /service_account_store/sa.json}
+    cat /service_account_store/sa.json |
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
-    --set-env-vars=[SERVICE_ACCOUNT=${cat /service_account_store/sa.json}]
+    --set-env-vars=[SERVICE_ACCOUNT=$1]
   env:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
