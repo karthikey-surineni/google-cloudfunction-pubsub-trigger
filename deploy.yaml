@@ -5,7 +5,7 @@ steps:
   args:
   - '-c'
   - |
-    sudo apt-get install jq -y
+    apt-get install jq -y
 - id: Retrieve Service Account
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: bash
