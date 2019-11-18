@@ -6,7 +6,8 @@ steps:
   - '-c'
   - |
     apt-get upgrade
-    apt-get install jq -y
+    curl -O http://ftp.au.debian.org/debian/pool/main/j/jq/jq_1.5+dfsg-2+b1_amd64.deb
+    dpkg --install jq_1.5+dfsg-2+b1_amd64.deb
 - id: Retrieve Service Account
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: bash
