@@ -24,7 +24,7 @@ steps:
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
-    --set-env-vars SERVICE_ACCOUNT=`${cat /service_account_store/sa.json}`
+    --set-env-vars SERVICE_ACCOUNT=`cat /service_account_store/sa.json`
   env:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
