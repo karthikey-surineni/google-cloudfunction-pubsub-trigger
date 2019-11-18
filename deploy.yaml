@@ -18,6 +18,7 @@ steps:
   args:
   - '-c'
   - |
+    echo ${cat /service_account_store/sa.json}
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
