@@ -18,7 +18,7 @@ steps:
   args:
   - '-c'
   - |
-    "`cat /service_account_store/sa.json | sed 's/[{,}]//g'` | sed 's/:/=/g'"
+    "`cat /service_account_store/sa.json | sed 's/[{,}]//g' | sed 's/:/=/g'`"
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
