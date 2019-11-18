@@ -3,7 +3,7 @@ steps:
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: bash
   volumes:
-    name: 'vol1'
+  - name: 'vol1'
     path: '/service_account_store'
   args:
   - '-c'
@@ -13,7 +13,7 @@ steps:
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   volumes:
-    name: 'vol1'
+  - name: 'vol1'
     path: '/service_account_store'
   args:
   - '-c'
