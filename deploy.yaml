@@ -20,12 +20,12 @@ steps:
   - |
     "`cat /service_account_store/sa.json | sed 's/[{}\n\"]//g' | sed 's/:/=/g'`"
     gcloud functions deploy ${_FUNCTION_NAME} \
+    --set-env-vars=[ "`cat /service_account_store/sa.json | sed 's/[{}\n\"]//g' | sed 's/:/=/g'`"] \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
     --entry-point=cf_pubsub_trigger \
     --retry \
-    --runtime=python37 \
-    --set-env-vars=[ "`cat /service_account_store/sa.json | sed 's/[{}\n\"]//g' | sed 's/:/=/g'`"]
+    --runtime=python37
   env:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
