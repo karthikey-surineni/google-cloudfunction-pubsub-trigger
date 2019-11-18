@@ -3,7 +3,7 @@ def run_build_trigger(payload):
     import requests
     trigger_id = "0ca14cd0-be48-4ae3-9087-27ee495a55f4"
     project_id = "cb-dataflow-python"
-    url = "https://cloudbuild.googleapis.com/v1/projects/{projectId}/triggers/{triggerId}:run".format(projectId=project_id,triggerid=trigger_id)
+    url = "https://cloudbuild.googleapis.com/v1/projects/{projectId}/triggers/{triggerId}:run".format(projectId=project_id,triggerId=trigger_id)
     data = '''
     {{
     "projectId": cb-dataflow-python,
