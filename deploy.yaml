@@ -18,14 +18,14 @@ steps:
   args:
   - '-c'
   - |
-    "`cat /service_account_store/sa.json | sed 's/[{}"]//g' | sed 's/:/=/g'`"
+    "`cat /service_account_store/sa.json | sed 's/[{}\n"]//g' | sed 's/:/=/g'`"
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
-    --set-env-vars=[ "`cat /service_account_store/sa.json | sed 's/[{}"]//g' | sed 's/:/=/g'`"]
+    --set-env-vars=[ "`cat /service_account_store/sa.json | sed 's/[{}\n"]//g' | sed 's/:/=/g'`"]
   env:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
