@@ -38,7 +38,7 @@ def cf_pubsub_trigger(event, context):
 
     if 'data' in event:
         name = base64.b64decode(event['data']).decode('utf-8')
-        payload = json.load(name)
+        payload = json.loads(name)
         response = run_build_trigger(payload)
     else:
         response = {}
