@@ -1,6 +1,7 @@
 
 def run_build_trigger(payload):
     import requests
+    import google-api-python-client
     trigger_id = "0ca14cd0-be48-4ae3-9087-27ee495a55f4"
     project_id = "cb-dataflow-python"
     url = "https://cloudbuild.googleapis.com/v1/projects/{projectId}/triggers/{triggerId}:run".format(projectId=project_id,triggerId=trigger_id)
