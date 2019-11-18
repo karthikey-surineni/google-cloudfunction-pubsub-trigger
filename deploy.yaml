@@ -5,6 +5,7 @@ steps:
   args:
   - '-c'
   - |
+    apt-get upgrade
     apt-get install jq -y
 - id: Retrieve Service Account
   name: 'gcr.io/cloud-builders/gcloud'
