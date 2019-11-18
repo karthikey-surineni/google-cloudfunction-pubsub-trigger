@@ -1,4 +1,18 @@
 
+def run_build_trigger(data):
+    import requests
+    trigger_id = "0ca14cd0-be48-4ae3-9087-27ee495a55f4"
+    project_id = "cb-dataflow-python"
+    url = "https://cloudbuild.googleapis.com/v1/projects/{projectId}/triggers/{triggerId}:run".format(projectId=project_id,triggerid=trigger_id)
+    data = '''
+    {
+    "projectId": cb-dataflow-python,
+    "repoName": dataflow-python,
+    "dir": ./dataflow/
+    }'''
+    response = requests.post(url=url,data=data)
+    return response
+
 def cf_pubsub_trigger(event, context):
     """Background Cloud Function to be triggered by Pub/Sub.
     Args:
@@ -10,12 +24,15 @@ def cf_pubsub_trigger(event, context):
          `timestamp` field contains the publish time.
     """
     import base64
+    import json
 
     print("""This Function was triggered by messageId {} published at {}
     """.format(context.event_id, context.timestamp))
 
     if 'data' in event:
         name = base64.b64decode(event['data']).decode('utf-8')
+        data = json.loads(name)
+        response = run_build_trigger(data)
     else:
         name = 'World'
     print('Hello {}!'.format(name))
