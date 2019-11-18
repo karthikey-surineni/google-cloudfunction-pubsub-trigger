@@ -1,5 +1,5 @@
 
-def run_build_trigger(data):
+def run_build_trigger(payload):
     import requests
     trigger_id = "0ca14cd0-be48-4ae3-9087-27ee495a55f4"
     project_id = "cb-dataflow-python"
@@ -31,11 +31,11 @@ def cf_pubsub_trigger(event, context):
 
     if 'data' in event:
         name = base64.b64decode(event['data']).decode('utf-8')
-        data = json.loads(name)
-        response = run_build_trigger(data)
+        payload = json.loads(name)
+        response = run_build_trigger(payload)
     else:
-        name = 'World'
-    print('Hello {}!'.format(name))
+        response = 'No data'
+    print('Response {response}'.format(response))
 
 def hello_error_1(request):
     # [START functions_helloworld_error]
