@@ -9,17 +9,6 @@ steps:
   - '-c'
   - |
     gsutil cp gs://cb-dataflow-storage/cb-dataflow-python-23cc97500072.json /service_account_store/sa.json
-- id: Install jq
-  name: ubuntu
-  entrypoint: 'bash'
-  volumes:
-  - name: 'vol1'
-    path: '/service_account_store'
-  args:
-  - '-c'
-  - |
-    apt-get upgrade
-    apt-get install jq -y
 - id: Deploy Cloud Function
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
@@ -36,7 +25,7 @@ steps:
     --entry-point=cf_pubsub_trigger \
     --retry \
     --runtime=python37 \
-    --set-env-vars SERVICE_ACCOUNT=`cat /service_account_store/sa.json`
+    --set-env-vars SERVICE_ACCOUNT="`cat /service_account_store/sa.json`"
   env:
   - 'PROJECT=$PROJECT_ID'
 substitutions:
