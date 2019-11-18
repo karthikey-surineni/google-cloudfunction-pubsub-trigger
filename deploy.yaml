@@ -18,7 +18,6 @@ steps:
   args:
   - '-c'
   - |
-    echo ${GOOGLE_APPLICATION_CREDENTIALS}
     gcloud functions deploy ${_FUNCTION_NAME} \
     --region=asia-northeast1 \
     --trigger-topic=pubsub-test-topic \
