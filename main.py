@@ -5,11 +5,15 @@ def run_build_trigger(payload):
     project_id = "cb-dataflow-python"
     url = "https://cloudbuild.googleapis.com/v1/projects/{projectId}/triggers/{triggerId}:run".format(projectId=project_id,triggerid=trigger_id)
     data = '''
-    {
+    {{
     "projectId": cb-dataflow-python,
     "repoName": dataflow-python,
-    "dir": ./dataflow/
-    }'''
+    "dir": ./dataflow/,
+    "substitutions":{{
+        "_SOURCE_DATASET":{source_dataset},
+        "_SOURCE_TABLE": {source_table}
+    }}
+    }}'''.format(source_dataset=payload["SOURCE_DATASET"],source_table=payload["SOURCE_TABLE"])
     response = requests.post(url=url,data=data)
     return response
 
