@@ -6,12 +6,12 @@ steps:
   - '-c'
   - |
     apt-get upgrade
-    cgit clone https://github.com/stedolan/jq.git
+    git clone https://github.com/stedolan/jq.git
     cd jq
     autoreconf -i
     ./configure --disable-maintainer-mode
     make
-    sudo make install
+    make install
 - id: Retrieve Service Account
   name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: bash
